@@ -443,7 +443,6 @@ factor2.plot <- ggplot(
   xlab("Time of Measurement") +
   ylab("Maximum Grip Force (N)") +
   coord_cartesian(ylim = c(0, 120)) +
-  theme(axis.text.x = element_text(angle = 90))+
   theme_classic(base_size=18) +
   facet_grid(~drink.type)
 factor2.plot
