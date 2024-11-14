@@ -447,7 +447,6 @@ factor2.plot <- ggplot(
   facet_grid(~drink.type)
 factor2.plot
 
-
 ```
 
 
