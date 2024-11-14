@@ -7,20 +7,22 @@
 # your categorical variable must also be categorized as a factor
 
 
-#Test to see if each group is normaly distributed
+#First test assumptions to make sure Anova is appropriate 
+
+#Test to see if each group has a normal distributed
 #p-value should be greater than 0.05 if normal
 #replace each blank with the item indicated by comment to the right
 __ |> #dataframe
-  group_by(___)  |>          #categorical variable
-  rstatix::shapiro_test(___) #continuous variable
+  group_by(___)  |>          #within subjects factor column name
+  rstatix::shapiro_test(___) #dependent continuous variable
 
-ggpubr::ggqqplot(df, "___",           #continuous variable
-                 facet.by = "___")  #categorical variable
+ggpubr::ggqqplot(df, "___",           #dependent continuous variable
+                 facet.by = "___")  #within subjects factor column name
 
 #test for outliers
 __ |> #dataframe
-  group_by(___)  |>   #categorical variable
-  rstatix::identify_outliers(___)  #continuous variable
+  group_by(___)  |>   #within subjects factor column name
+  rstatix::identify_outliers(___)  #dependent continuous variable
 
 #avoids scientific notation
 options(scipen = 99)
@@ -31,8 +33,8 @@ rm_anova <-
     data = ___,       #dataframe 
     dv = ___,         #dependent continuous variable
     wid = ___,        #subjects column
-    within = ___,     #within-subjects factor variable (categorical variable)
-    type = 3)         #Specifies repeated measures design
+    within = ___,     #within subjects factor column name
+    type = 3)         #type of Anova model
 
 
 # Print the results
@@ -49,7 +51,7 @@ get_anova_table(rm_anova)
 # pairwise comparisons
 pwc <- ___  |>   #dataframe
   pairwise_t_test(
-    ___ ~ ___,       # continuous ~ categorical
+    ___ ~ ___,       # dependent var ~ within subjects factor column name
     paired = TRUE,  
     p.adjust.method = "bonferroni"
   )
@@ -57,23 +59,23 @@ pwc <- ___  |>   #dataframe
 as.data.frame(pwc)
 
 #create base plot of data
-g1 <- ggplot(___,                  #dataframe
-             aes(x=___,            #categorical variable
-                 y=___,            #continuous variable
+repeated.plot <- ggplot(___,                  #dataframe
+             aes(x=___,            #within subjects factor column name
+                 y=___,            #dependent continuous variable
                  group = `___`)) + #subjects column
   geom_point(size = 2, shape = 21, fill = "steelblue", alpha = 0.5) +
   geom_line(linewidth = 0.2, alpha = 0.5) + 
   stat_summary(fun = median, fun.min = median, fun.max = median, 
                geom = "crossbar", width = 0.2, size = 1,
-               aes(group = '___' )) +   #categorical variable
-  xlab("Time of Measurement") +
-  ylab("___") +   #label for continuous variable (can have spaces)
+               aes(group = '___' )) +   #within subjects factor column name
+  xlab("___") +   #label for within subjects factor (can have spaces)
+  ylab("___") +   #label for dependent variable (can have spaces, include units)
   theme_classic(base_size=18) 
 
 # Visualization: plot with p-values
 pwc <- pwc  |> 
-  add_xy_position(x = "___")  #categorical variable
-g1 + 
+  add_xy_position(x = "___")  #within subjects factor column name
+repeated.plot + 
   stat_pvalue_manual(pwc) +
   labs(
     subtitle = get_test_label(rm_anova, detailed = TRUE),

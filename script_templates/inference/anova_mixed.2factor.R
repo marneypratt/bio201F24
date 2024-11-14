@@ -2,6 +2,37 @@
 #in this code, one factor is within subjects, and the other factor is between
 
 
+#First test assumptions to make sure Anova is appropriate 
+
+#Test to see if each group has a normal distributed
+#p-value should be greater than 0.05 if normal
+my.df  |> 
+  group_by(___,              #within subjects factor column name
+           ___)  |>          #between subjects factor column name
+  rstatix::shapiro_test(___) #dependent variable column name
+
+#qq plots
+#points should be fairly close to the line if normal
+ggpubr::ggqqplot(my.df, "___") +     #dependent variable column name
+  facet_grid(
+    ___ ~ ___) #1st blank = within subjects factor column name 
+               #2nd blank = between subjects factor column name
+
+
+#test for outliers
+my.df  |> 
+  group_by(___,              #within subjects factor column name
+           ___)  |>          #between subjects factor column name
+  rstatix::identify_outliers(___) #dependent variable column name
+
+#test for homogeneity of variance
+##p-value should be greater than 0.05 if variance is homogeneous
+my.df |> 
+  group_by(___) |>           #within subjects factor column name
+  levene_test(___ ~ ___)  #1st blank = dependent variable column name
+                          #2nd blank = between subjects factor column name
+
+
 #avoids scientific notation
 options(scipen = 99)
 

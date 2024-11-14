@@ -11,7 +11,7 @@ format:
 
 ## Load necessary packages
 
-Run the code below at the start of the session to make sure all the necessary packages are loaded.
+Run the code below at the start of the session to make sure all the necessary packages are loaded. If you add any packages, put them in this same code chunk and put a comment next to it for what you used it for.
 
 It is recommended that you put all your code to load packages in one R chunk at the start. Run the chunk below by clicking the little green arrow at the top right of the code chunk.
 
@@ -30,6 +30,10 @@ library(labelled) #for labeling variables better
 
 ```
 
+
+Copy, paste, and tweak the necessary script templates into the code chunks below.
+
+
 ## Import Data
 
 
@@ -46,6 +50,7 @@ library(labelled) #for labeling variables better
 
 ### Descriptive Statistics
 
+I recommend starting with the script to give you all the descriptive statistics. Then you will have everything in your notes in case you need them later. 
 
 ```{r}
 #| label: descriptive stats
@@ -54,9 +59,12 @@ library(labelled) #for labeling variables better
 
 ```
 
+If you decide you want a formatted table of a subset of the descriptive statistics, then load the `flextable` package in the setup code chunk at the start of this Quarto file and then add a code chunk to make the desired formatted table.
+
 
 ### QQ Plots to Assess Normality
 
+Check to see if the continuous dependent variable is normally distributed.
 
 ```{r}
 #| label: Dependent variable QQ plots 
@@ -72,6 +80,7 @@ Choose which framework (estimation statistics or null hypothesis significance te
 
 ### Compare the baseline between treatment groups
 
+To make sure there wasn't any bias in assigning subjects to treatment groups, compare the baseline values between treatment groups before the subject was exposed to the treatment.
 
 ```{r}
 #| label: compare baselines
@@ -80,10 +89,12 @@ Choose which framework (estimation statistics or null hypothesis significance te
 
 ```
 
-### 2-Factor inference
+### Full inference comparison
+
+Compare your full model (include all factors)
 
 ```{r}
-#| label: compare two factors
+#| label: inference
 
 
 ```
@@ -118,7 +129,7 @@ Save your graph with the `ggsave()` function. You can find the "saving.graphs.R"
 ```
 
 
-Paste the template code to save your graph above. This graph file should appear in the results folder within the project folder under the Files tab in the lower right quadrant of this window.
+Any graph files you save using the template code with the `ggsave()` function should appear in the results folder within the project folder.
 
 If you are working on the Smith server, you will first need to export this file to your computer:
 
