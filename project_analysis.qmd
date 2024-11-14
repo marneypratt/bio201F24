@@ -1,0 +1,204 @@
+---
+title: "project_analysis_NAME"
+subtitle: "BIO 201 Project Data Analysis"
+author: "Your Name"
+date: "November 19, 2024"
+format: 
+  html:
+    code-overflow: wrap
+    embed-resources: true
+---
+
+## Load necessary packages
+
+Run the code below at the start of the session to make sure all the necessary packages are loaded.
+
+It is recommended that you put all your code to load packages in one R chunk at the start. Run the chunk below by clicking the little green arrow at the top right of the code chunk.
+
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
+
+suppressPackageStartupMessages(
+  library(tidyverse)) ## for readr, dplyr, ggplot2
+library(dabestr) ##for data analysis using Bootstrap-coupled estimation
+library(rstatix) #pipe friendly framework for basic stats
+library(ggpubr) #publication ready plots and QQ plots
+library(labelled) #for labeling variables better
+
+
+```
+
+## Import Data
+
+
+```{r}
+#| label: import data
+
+
+
+```
+
+
+
+## Data Exploration
+
+### Descriptive Statistics
+
+
+```{r}
+#| label: descriptive stats
+
+
+
+```
+
+
+### QQ Plots to Assess Normality
+
+
+```{r}
+#| label: Dependent variable QQ plots 
+
+
+
+```
+
+
+## Inferential Statistics
+
+Choose which framework (estimation statistics or null hypothesis significance testing) your group wants to use and then use that framework to analyze your data
+
+### Compare the baseline between treatment groups
+
+
+```{r}
+#| label: compare baselines
+
+
+
+```
+
+### 2-Factor inference
+
+```{r}
+#| label: compare two factors
+
+
+```
+
+
+
+
+
+
+
+```{r}
+#| label: graph
+
+
+
+
+```
+
+
+
+## Save your graphs
+
+Save your graph with the `ggsave()` function. You can find the "saving.graphs.R" template in the "script_templates" then "graphing" folder
+
+
+```{r}
+#| label: Save your graphs
+#| eval: false
+
+
+
+```
+
+
+Paste the template code to save your graph above. This graph file should appear in the results folder within the project folder under the Files tab in the lower right quadrant of this window.
+
+If you are working on the Smith server, you will first need to export this file to your computer:
+
+-   Check the box next to the graph file
+
+-   Go to the "More" menu with the gear icon and click the drop down arrow
+
+-   Select "Export" and then save the file to your computer
+
+You can now insert this graph into your Group Folder and Group Presentation so everyone in your group has access to it.
+
+# Citing R in Your Presentation
+
+When you talk about how you analyzed the data in the Methods section of your presentation, you need to cite how the data were analyzed including (1) any calculations done (for example, how was density calculated?), and (2) what software was used for the analysis.
+
+Here is a detailed explanation of How to Cite R in your Methods.
+
+You need to cite base R but how will you know what version of R you are using?
+
+You should also cite the **most important packages used**.
+
+All of you should cite the {tidyverse} super package since we used {reader}, {dplyr}, and {ggplot2} to import, wrangle, and graph our data. 
+
+If you used the estimation statistics framework, then you should cite {dabestr}
+
+If you used the NHST framework, then you should cite {rstatix}
+
+To properly cite packages, you need to find out the information needed for each package. Run the code below to determine the version of R and packages used. (note that you do NOT need to cite ALL of the packages that the `sessionInfo` function spits out. See above for what you need to cite)
+
+```{r}
+#| label: sessionInfo
+
+sessionInfo()
+
+```
+
+The above is the information you need to cite which version of R as well as any packages you used. While the version number is necessary, you also need more information to cite R and the packages. Refer to [How to Cite R in your Methods](https://docs.google.com/presentation/d/1RG4_R-MDOy1vbMz-M1gfOcMtgqWu9Kvv_R4ex5QdcVk/edit?usp=sharing) to help you figure out how to cite in the text or on slides as well as the full citation in the Literature Cited section at the end.
+
+Use the code below to get more necessary information to cite R itself
+
+```{r}
+#| label: cite R
+
+#citation info for base R 
+citation()
+
+```
+
+Use the code below to cite the {tidyverse} package and then repeat the code replacing "tidyverse" with any other packages you need to cite
+
+```{r}
+#| label: cite tidyverse
+
+#citation info for tidyverse package 
+citation("tidyverse")
+
+```
+
+## Render this File to HTML & Print to PDF
+
+Don't forget to "render" your .qmd file when you are done.
+
+-   Before you Render
+
+    -   Make sure that each code chunk has an unique label name or no name
+
+    -   Save this file and give it the name "macro_analysis_Name.qmd" (replace your name with the "Name" part)
+
+-   Render this Quarto file to HTML (just select the Render menu item at the top of this window)
+
+-   If the HTML file didn't already open in your browser, then click on the name of the file in the Files window and select "View in Web Browser"
+
+-   Once the HTML file is open in your web browser, then use the print function within your browser to save it as a PDF. Please name your PDF file "macro_analysis_Name.pdf" (replace your name with the "Name" part)
+
+-   Make sure the PDF file is saved somewhere on your computer that you can get to
+
+-   Place a copy of the PDF file in your GROUP Google Drive folder for this class
+
+Render straight to HTML, open the HTML file in your browser, and then "print" to a PDF file.
+
+Make sure you add your name to the PDF file name: macro_analysis_Pratt.pdf
+
+Save a copy the PDF in your GROUP FOLDER.
