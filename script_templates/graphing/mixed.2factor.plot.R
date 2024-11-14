@@ -22,8 +22,6 @@ factor2.plot <- ggplot(
   
   xlab("___") +  #within subjects factor label
   ylab("___") + #dependent variable label with units
-  coord_cartesian(ylim = c(0, 120)) +
-  theme(axis.text.x = element_text(angle = 90))+
   theme_classic(base_size=18) +
   facet_grid(~___)  #between subjects factor column name
 factor2.plot
