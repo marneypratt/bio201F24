@@ -20,7 +20,8 @@ It is recommended that you put all your code to load packages in one R chunk at 
 #| warning: false
 #| message: false
 
-library(tidyverse, quietly = TRUE) ## for readr, dplyr, ggplot2
+suppressPackageStartupMessages(
+  library(tidyverse)) ## for readr, dplyr, ggplot2
 library(dabestr, warn.conflicts = FALSE) ##for data analysis using Bootstrap-coupled estimation
 library(rstatix, warn.conflicts = FALSE) #pipe friendly framework for basic stats
 library(ggpubr, warn.conflicts = FALSE) #publication ready plots & QQ plots
