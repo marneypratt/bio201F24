@@ -17,7 +17,7 @@ factor2.plot <- ggplot(
   ###keep as median or change to mean
   stat_summary(
     fun = median, fun.min = median, fun.max = median, 
-    geom = "crossbar", width = 0.3, size = 0.6,
+    geom = "crossbar", width = 0.3, linewidth = 0.6,
     aes(group = '___' )) + #within subjects factor column name
   
   xlab("___") +  #within subjects factor label

@@ -1,5 +1,4 @@
-#this code will make a boplot with sample sizes
-#remove points or mean as desired
+#this code will make a dot plot with sample sizes
 #make sure you have loaded the ggbeeswarm package to use geom_quasirandom()
 
 
