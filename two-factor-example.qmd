@@ -21,12 +21,12 @@ It is recommended that you put all your code to load packages in one R chunk at 
 #| warning: false
 #| message: false
 
-library(tidyverse, warn.conflicts = FALSE) ## for readr, dplyr, ggplot2
+library(tidyverse, quietly = TRUE) ## for readr, dplyr, ggplot2
 library(ggbeeswarm) ## for jittering points (you can remove this is you did not use a dotplot)
-#library(flextable, warn.conflicts = FALSE) ## for making formatted tables that can be pasted into Word or Google Docs
+#library(flextable, warn.conflicts = FALSE) ## for making formatted tables that can be pasted elsewhere
 library(dabestr, warn.conflicts = FALSE) ##for data analysis using Bootstrap-coupled estimation
 library(rstatix, warn.conflicts = FALSE) #pipe friendly framework for basic stats
-library(ggpubr, warn.conflicts = FALSE) #publication ready plots
+library(ggpubr, warn.conflicts = FALSE) #publication ready plots & QQ plots
 library(labelled) #for labeling variables better
 
 
