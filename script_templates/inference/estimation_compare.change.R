@@ -21,6 +21,10 @@ my.df.wide  <- my.df |>
 #next, take the difference between the values for each subject
 # example: mutate(change.maxGrip = After.maxGrip - Before.maxGrip)
 my.df.diff <- my.df.wide |> 
+  select(___,  #between subjects factor column name
+         ___,  #within subjects factor column name
+         ___,  #subjects column name
+         ___,) |>  #dependent variable column name
   mutate(change.___ =  #dependent variable name
            ___.___ - ___.___) #new column names to calculate change
 
